@@ -46,12 +46,13 @@ class ProjectInput {
     this.attach();
   }
 
-  @autoBind
-  private submitHandler = (event: Event) => {
-    event.preventDefault();
+  private gatherUserInput = () => {};
 
-    console.log(this.titleInputElement.value);
-  };
+  @autoBind
+  private submitHandler(event: Event) {
+    event.preventDefault();
+    const userInput = this.gatherUserInput();
+  }
 
   private configure = () => {
     this.element.addEventListener("submit", this.submitHandler.bind(this));
